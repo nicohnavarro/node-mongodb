@@ -1,6 +1,6 @@
 const express = require('express');
 const config = require('../../config/index');
-
+const morgan = require('morgan');
 class ExpressServer {
 
   constructor(){  
@@ -13,14 +13,21 @@ class ExpressServer {
 
   _middlewares(){
     this.app.use(express.json());
+    this.app.use(morgan('tiny'));
   }
 
   _routes(){
-    this.app.use(`${this.basePath}/users`,require('../../routes/users'));
+    
+    this.app.head('/status',(req,res)=>{
+      res.status(200).end();
+    });
+
+    this.app.use(`${this.basePath}/users`,
+      require('../../routes/users'));
   }
 
   async start(){
-    this.app.listen(this.port,() =>{
+    this.app.listen(this.port,(error) =>{
       if(error){
         console.log(error);
         process.exit(1);

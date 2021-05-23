@@ -1,4 +1,5 @@
-const {Routes} = require('express');
+const {Router} = require('express');
+
 const { getAllUsers,
         createUser, 
         updateUser, 
@@ -6,7 +7,7 @@ const { getAllUsers,
         deleteUser 
 } = require('../controllers/users')
 
-const routes = Routes();
+const routes = Router();
 
 routes.get('/',getAllUsers);
 routes.post('/',createUser);
@@ -14,3 +15,4 @@ routes.put('/:id',updateUser);
 routes.patch('/:id',modifyUser);
 routes.delete('/:id',deleteUser);
 
+module.exports = routes;
