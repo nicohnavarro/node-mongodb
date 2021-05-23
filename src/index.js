@@ -1,5 +1,5 @@
 const startServer = async ()=>{
-  require('./loaders/index')();
+  require('./loaders')();
 }
 
 startServer();
