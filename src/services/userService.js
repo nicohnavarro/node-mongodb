@@ -5,6 +5,10 @@ const findAll = async() => {
   return await repository.findAll();
 }
 
+const findWithPagination = async(filter,options) => {
+  return await repository.findWithPagination(filter,options);
+}
+
 const findById = async(id) => {
   return await repository.findById(id);
 }
@@ -23,6 +27,7 @@ const remove = async(id) => {
 
 module.exports = {
   findAll,
+  findWithPagination,
   findById,
   save,
   update,
