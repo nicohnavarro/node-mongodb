@@ -1,51 +1,70 @@
 const express = require('express');
-
+const userService = require('../services/userService');
 /**
  *
  * @params {express.Request} req
  * @params {express.Response} res
  */
-const getAllUsers = (req,res)=>{
-  const users = [
-    {
-      id:1,
-      name:'Nicolas'
-    },
-    {
-      id:2,
-      name: 'Mirta'
+const getAllUsers = async (req,res,next)=>{
+  try{
+    const users = await userService.findAll();
+    res.json(users); 
+  }catch(err){
+    next(err);
+  }
+}
+
+const getUserById = async (req,res,next) => {
+  try{
+    const { id } =req.params;
+    const user = await userService.findById(id);
+
+    const result = {
+      message:'User found',
+      user
     }
-  ]
-  res.json(users); 
+    res.json(result);
+  }catch(err){
+    next(err);
+  }
 }
 
-const createUser = (req,res) =>{
-  const user = req.body;
-  user.id = 6;
-
-  const result = {
-    message:'User created',
-    user
-  }
-
+const createUser = async (req,res,next) =>{
+  try{
+    let user = req.body;
+    user = await userService.save(user)
+    const result = {
+      message:'User created',
+      user
+    }
   res.status(201).json(result);
+  }catch(err){
+    next(err);
+  }
+  
 }
 
-const updateUser = (req,res)=>{
-  const { id } =req.params;
-  const user = req.body;
-  user.id = id;
+const updateUser = async (req,res,next)=>{
+  try{
+    const { id } =req.params;
+    let user = req.body;
+    user._id = id;
+    await userService.update(id,user);
 
-  const result = {
-    message:'User updated',
-    user
+    const result = {
+      message:'User updated',
+      user
+    }
+    res.json(result);
+  }catch(err){
+    next(err);
   }
-  res.json(result);
+  
 }
 
 const modifyUser = (req,res) =>{
   const {id} = req.params;
-  const user = req.body;
+  let user = req.body;
   user.id = id;
 
   const result = {
@@ -55,17 +74,22 @@ const modifyUser = (req,res) =>{
   res.json(result)
 }
 
-const deleteUser = (req,res)=>{
-  const {id} = req.params;
-  const result = {
-    message:`User with id: ${id} deleted`,
+const deleteUser = async (req,res,next)=>{
+  try{
+    const {id} = req.params;
+    const user = await userService.remove(id);
+    const result = {
+      message:`User with id: ${id} deleted`,
+    }
+    res.json(result)
+  }catch(err){
+    next(err);
   }
-
-  res.json(result);
 }
 
 module.exports = {
   getAllUsers,
+  getUserById,
   createUser,
   updateUser,
   modifyUser,

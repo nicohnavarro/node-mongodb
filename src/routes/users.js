@@ -1,6 +1,7 @@
 const {Router} = require('express');
 
 const { getAllUsers,
+        getUserById,
         createUser, 
         updateUser, 
         modifyUser, 
@@ -10,6 +11,7 @@ const { getAllUsers,
 const routes = Router();
 
 routes.get('/',getAllUsers);
+routes.get('/:id',getUserById);
 routes.post('/',createUser);
 routes.put('/:id',updateUser);
 routes.patch('/:id',modifyUser);
