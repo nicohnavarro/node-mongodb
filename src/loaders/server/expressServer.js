@@ -31,6 +31,9 @@ class ExpressServer {
       res.status(200).end();
     });
 
+    this.app.use(`${this.basePath}/auth`,
+       require('../../routes/auth'));
+
     this.app.use(`${this.basePath}/users`,
       require('../../routes/users'));
   }
