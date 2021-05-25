@@ -8,13 +8,19 @@ const { getAllUsers,
         deleteUser 
 } = require('../controllers/users')
 
+const { postRequestValidations,
+        putRequestValidations,
+        deleteRequestValidations,
+        getRequestValidations
+} = require('../middlewares/users');
+
 const routes = Router();
 
 routes.get('/',getAllUsers);
 routes.get('/pag',getUsersWithPagination);
-routes.get('/:id',getUserById);
-routes.post('/',createUser);
-routes.put('/:id',updateUser);
-routes.delete('/:id',deleteUser);
+routes.get('/:id',getRequestValidations,getUserById);
+routes.post('/',postRequestValidations,createUser);
+routes.put('/:id',putRequestValidations,updateUser);
+routes.delete('/:id',deleteRequestValidations,deleteUser);
 
 module.exports = routes;
