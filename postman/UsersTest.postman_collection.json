@@ -1,7 +1,7 @@
 {
 	"info": {
 		"_postman_id": "30f5492f-267b-4377-a604-f65f384ce694",
-		"name": "Users Test",
+		"name": "UsersTest",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -23,8 +23,8 @@
 									"    pm.response.to.not.have.status(500);",
 									"});",
 									"",
-									"pm.test(\"Response time is less than 500ms\", function () {",
-									"    pm.expect(pm.response.responseTime).to.be.below(500);",
+									"pm.test(\"Response time is less than 700ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(700);",
 									"});",
 									"pm.test(\"Reponse is Json\", function () {",
 									"    pm.response.to.be.json;",
@@ -58,14 +58,11 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:3000/api/v1/auth/login",
+							"raw": "{{basepath}}/auth/login",
 							"host": [
-								"localhost"
+								"{{basepath}}"
 							],
-							"port": "3000",
 							"path": [
-								"api",
-								"v1",
 								"auth",
 								"login"
 							]
@@ -119,14 +116,11 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:3000/api/v1/auth/login",
+							"raw": "{{basepath}}/auth/login",
 							"host": [
-								"localhost"
+								"{{basepath}}"
 							],
-							"port": "3000",
 							"path": [
-								"api",
-								"v1",
 								"auth",
 								"login"
 							]
@@ -180,14 +174,11 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:3000/api/v1/auth/login",
+							"raw": "{{basepath}}/auth/login",
 							"host": [
-								"localhost"
+								"{{basepath}}"
 							],
-							"port": "3000",
 							"path": [
-								"api",
-								"v1",
 								"auth",
 								"login"
 							]
@@ -215,8 +206,8 @@
 									"    pm.response.to.not.have.status(500);",
 									"});",
 									"",
-									"pm.test(\"Response time is less than 500ms\", function () {",
-									"    pm.expect(pm.response.responseTime).to.be.below(500);",
+									"pm.test(\"Response time is less than 700ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(700);",
 									"});",
 									"pm.test(\"Reponse is Json\", function () {",
 									"    pm.response.to.be.json;",
@@ -252,14 +243,11 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "localhost:3000/api/v1/users/pag?filter[name]=Nicolas&options[limit]=4&options[offset]=0",
+							"raw": "{{basepath}}/users/pag?filter[name]=Nicolas&options[limit]=4&options[offset]=0",
 							"host": [
-								"localhost"
+								"{{basepath}}"
 							],
-							"port": "3000",
 							"path": [
-								"api",
-								"v1",
 								"users",
 								"pag"
 							],
@@ -331,14 +319,11 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "localhost:3000/api/v1/users/pag?filter[name]=Nicolas&options[limit]=4&options[offset]=0",
+							"raw": "{{basepath}}/users/pag?filter[name]=Nicolas&options[limit]=4&options[offset]=0",
 							"host": [
-								"localhost"
+								"{{basepath}}"
 							],
-							"port": "3000",
 							"path": [
-								"api",
-								"v1",
 								"users",
 								"pag"
 							],
@@ -382,8 +367,8 @@
 									"    pm.response.to.not.have.status(500);",
 									"});",
 									"",
-									"pm.test(\"Response time is less than 900ms\", function () {",
-									"    pm.expect(pm.response.responseTime).to.be.below(900);",
+									"pm.test(\"Response time is less than 1200ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(1200);",
 									"});",
 									"pm.test(\"Reponse is Json\", function () {",
 									"    pm.response.to.be.json;",
@@ -415,7 +400,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"name\":\"Nicolas\",\n    \"lastName\":\"Rodriguez\",\n    \"email\":\"{{randomNumber}}@gmail.com\",\n    \"dateOfBirth\":\"10/02/1994\",\n    \"password\":\"123123\"\n}",
+							"raw": "{\n    \"name\":\"Nicolas\",\n    \"lastName\":\"Rodriguez\",\n    \"email\":\"a1{{randomNumber}}@gmail.com\",\n    \"dateOfBirth\":\"10/02/1994\",\n    \"password\":\"123123\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -423,14 +408,11 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:3000/api/v1/users",
+							"raw": "{{basepath}}/users",
 							"host": [
-								"localhost"
+								"{{basepath}}"
 							],
-							"port": "3000",
 							"path": [
-								"api",
-								"v1",
 								"users"
 							]
 						}
@@ -494,14 +476,11 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:3000/api/v1/users",
+							"raw": "{{basepath}}/users",
 							"host": [
-								"localhost"
+								"{{basepath}}"
 							],
-							"port": "3000",
 							"path": [
-								"api",
-								"v1",
 								"users"
 							]
 						}
@@ -528,8 +507,8 @@
 									"    pm.response.to.not.have.status(500);",
 									"});",
 									"",
-									"pm.test(\"Response time is less than 900ms\", function () {",
-									"    pm.expect(pm.response.responseTime).to.be.below(900);",
+									"pm.test(\"Response time is less than 1200ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(1200);",
 									"});",
 									"pm.test(\"Reponse is Json\", function () {",
 									"    pm.response.to.be.json;",
@@ -567,14 +546,11 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:3000/api/v1/users/{{userId}}",
+							"raw": "{{basepath}}/users/{{userId}}",
 							"host": [
-								"localhost"
+								"{{basepath}}"
 							],
-							"port": "3000",
 							"path": [
-								"api",
-								"v1",
 								"users",
 								"{{userId}}"
 							]
@@ -639,14 +615,11 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:3000/api/v1/users/123",
+							"raw": "{{basepath}}/users/123",
 							"host": [
-								"localhost"
+								"{{basepath}}"
 							],
-							"port": "3000",
 							"path": [
-								"api",
-								"v1",
 								"users",
 								"123"
 							]
@@ -674,8 +647,8 @@
 									"    pm.response.to.not.have.status(500);",
 									"});",
 									"",
-									"pm.test(\"Response time is less than 900ms\", function () {",
-									"    pm.expect(pm.response.responseTime).to.be.below(900);",
+									"pm.test(\"Response time is less than 1200ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(1200);",
 									"});",
 									"pm.test(\"Reponse is Json\", function () {",
 									"    pm.response.to.be.json;",
@@ -704,14 +677,11 @@
 							}
 						],
 						"url": {
-							"raw": "localhost:3000/api/v1/users/{{userId}}",
+							"raw": "{{basepath}}/users/{{userId}}",
 							"host": [
-								"localhost"
+								"{{basepath}}"
 							],
-							"port": "3000",
 							"path": [
-								"api",
-								"v1",
 								"users",
 								"{{userId}}"
 							]
@@ -766,14 +736,11 @@
 							}
 						],
 						"url": {
-							"raw": "localhost:3000/api/v1/users/{{userId}}",
+							"raw": "{{basepath}}/users/{{userId}}",
 							"host": [
-								"localhost"
+								"{{basepath}}"
 							],
-							"port": "3000",
 							"path": [
-								"api",
-								"v1",
 								"users",
 								"{{userId}}"
 							]
