@@ -15,7 +15,7 @@ const login = async(email,password) => {
     const validPassword = await bcrypt.compare(password, user.password);
     
     if(!validPassword){
-      throw new AppError('Authentication failed',400);
+      throw new AppError('Authentication failed',401);
     }
 
     const token = _encrypt(user._id);

@@ -11,7 +11,7 @@ const _passwordRequired = check('password','Password required').not().isEmpty();
 const _validationResult = (req,res,next) => {
   const errors = validationResult(req);
   if(!errors.isEmpty()){
-    throw new AppError('Validation Error',400,errors.errors);
+    throw new AppError('Validation Error',401,errors.errors);
   }
   next();
 }

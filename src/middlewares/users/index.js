@@ -67,7 +67,7 @@ const postRequestValidations = [
 
 const putRequestValidations = [
   validJWT,
-  hasRole(ROLES),
+  hasRole(ADMIN_ROLE,USER_ROLE),
   _roleValid,
   _dateValid,
   _idRequired,
@@ -86,9 +86,8 @@ const deleteRequestValidations = [
 ]
 
 const getRequestValidations = [
-  _idRequired,
-  _idIsMongoDB,
-  _idExist,
+  validJWT,
+  hasRole(ADMIN_ROLE,USER_ROLE),
   _validationResult
 ]
 

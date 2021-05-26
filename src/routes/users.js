@@ -17,7 +17,7 @@ const { postRequestValidations,
 const routes = Router();
 
 routes.get('/',getAllUsers);
-routes.get('/pag',getUsersWithPagination);
+routes.get('/pag',getRequestValidations,getUsersWithPagination);
 routes.get('/:id',getRequestValidations,getUserById);
 routes.post('/',postRequestValidations,createUser);
 routes.put('/:id',putRequestValidations,updateUser);
