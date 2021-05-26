@@ -7,7 +7,8 @@
     "dev": "npx nodemon src",
     "start": "node src",
     "test": "node ./postman/newman",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "lint-staged": "lint-staged"
   },
   "repository": {
     "type": "git",
@@ -20,6 +21,12 @@
     "url": "https://github.com/nicohnavarro/node-api/issues"
   },
   "homepage": "https://github.com/nicohnavarro/node-api#readme",
+  "lint-staged": {
+    "*.{js,json}": [
+      "prettier --write",
+      "git add"
+    ]
+  },
   "dependencies": {
     "bcrypt": "^5.0.1",
     "dotenv": "^10.0.0",
